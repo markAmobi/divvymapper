@@ -10,7 +10,7 @@
 
   <% @stations.each do |station| %>
     <tr>
-      <td> <%= station.station_name %> </td>
+      <td>  <%= link_to "#{station.station_name}", station %> </td>
       <td> <%= station.available_bikes %> </td>
       <td> <%= station.available_docks %> </td>
       <td> <%= station.total_docks %> </td>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get 'stations', to: 'stations#index'
-  get 'stations/:id', to: 'stations#show'
+  get 'stations/:id', to: 'stations#show', as: 'station'
 
-  
+
 end
