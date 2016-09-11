@@ -1,12 +1,11 @@
 class CreateStations < ActiveRecord::Migration[5.0]
   def change
     create_table :stations do |t|
-      t.integer :divvy_id
       t.string :station_name
       t.integer :available_docks
       t.integer :total_docks
-      t.decimal :latitude, precision: 8
-      t.decimal :longitude, precision: 8
+      t.float :latitude
+      t.float :longitude
       t.string :status_value
       t.integer :status_key
       t.string :status

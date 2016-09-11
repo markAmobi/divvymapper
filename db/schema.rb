@@ -16,12 +16,11 @@ ActiveRecord::Schema.define(version: 20160911033427) do
   enable_extension "plpgsql"
 
   create_table "stations", force: :cascade do |t|
-    t.integer  "divvy_id"
     t.string   "station_name"
     t.integer  "available_docks"
     t.integer  "total_docks"
-    t.decimal  "latitude",                precision: 8
-    t.decimal  "longitude",               precision: 8
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "status_value"
     t.integer  "status_key"
     t.string   "status"
@@ -36,8 +35,8 @@ ActiveRecord::Schema.define(version: 20160911033427) do
     t.datetime "last_communication_time"
     t.string   "land_mark"
     t.boolean  "is_renting"
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end
