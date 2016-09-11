@@ -1,6 +1,7 @@
 class StationsController < ApplicationController
 
   def index
+    # Station.update_stations
     @stations = Station.all
   end
 
