@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'stations', to: 'stations#index'
   get 'stations/:id', to: 'stations#show', as: 'station'
 
+  get 'display_map', to: 'map#display_map', as: 'display_map'
 
 end
