@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   root 'stations#index'
 
+  get 'test', to: 'welcome#index'
+
   get 'stations', to: 'stations#index'
   get 'stations/:id', to: 'stations#show', as: 'station'
 
