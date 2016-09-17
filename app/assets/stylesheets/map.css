@@ -1,15 +1,17 @@
-/*.main-container {
+.main-container {
   height:100% !important;
 }
 
 .control-center {
+  background-color: #BFEFFA;
   height: 100% !important;
 }
 
 .map-container {
+  background-color:#8DFAD8;
   height: 100% !important;
 }
 
 .test-div {
   height: 100%;
-}*/
+}

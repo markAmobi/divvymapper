@@ -1,15 +1,48 @@
-<div class="container-fluid main-container">
+<div class="main-container container-fluid">
+  <div class="row row-container">
+    <div class="control-center col-xs-12 col-sm-4 col-md-3">
 
-  <div class="control-center">
-    control goes here
-  </div>
+      <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#tripPlanning">Home</a></li>
+        <li><a data-toggle="tab" href="#stationView">Station</a></li>
+        <li><a data-toggle="tab" href="#allStations">Stations</a></li>
+      </ul>
 
-  <div class="map-container">
-    map goes here
-  </div>
+      <div class="tab-content">
+        <div id="tripPlanning" class="tab-pane fade in active">
+          <h3>Trip Details </h3>
+          <ul>
+            <li>Form containing start and stop destinations.</li>
+            <li>Possibly other things later.</li>
+          </ul>
+        </div>
+        <div id="stationView" class="tab-pane fade">
+          <h3>Station</h3>
+          <ul>
+            <li>Search box to select which station you want to view here.</li>
+            <li>View particular station here. Might have interaction with stations here.</li>
+            <li>Some other things as they come to mind. </li>
+          </ul>
+        </div>
+        <div id="allStations" class="tab-pane fade">
+          <h3>Space for all stations here. </h3>
+          <ul>
+            <li>Not yet sure what this will look like yet. Not sure what anything will look like. </li>
+            <li>CSS sucks.</li>
+          </ul>
+        </div>
+
+      </div> <!-- end tab-content -->
+    </div> <!-- end control-center -->
 
 
-</div>
+    <div class="map-container col-xs-12 col-sm-8 col-md-9">
+      map goes here
+    </div> <!-- end map-container -->
+
+  </div> <!-- end row-container -->
+</div> <!-- end main-container -->
+
 
 <!-- <div class="test-div teal lighten-2">
   test div here.
@@ -19,5 +52,5 @@
 
 
 <script>
-
+  $('body').css('background-color', '#E6E4E4');
 </script>
