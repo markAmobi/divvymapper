@@ -3,20 +3,14 @@
     <div class="control-center col-xs-12 col-sm-4 col-md-3">
 
       <ul class="nav nav-tabs">
-
         <li class="active"><a data-toggle="tab" href="#stationView">Station</a></li>
         <li><a data-toggle="tab" href="#allStations">Stations</a></li>
         <li><a data-toggle="tab" href="#tripPlanning">Plan trip</a></li>
         <li><a data-toggle="tab" href="#advancedPlanning">Advanced</a></li>
-
       </ul>
 
       <div class="tab-content">
-
-
         <div id="stationView" class="tab-pane fade in active">
-
-
           <h3>Station</h3>
           <ul>
             <li>Search box to select which station you want to view here.</li>
@@ -25,7 +19,6 @@
           </ul>
 
           <%= form_tag do  %>
-
             <!-- TODO: replace the select with a search box so user can type name of stations and filter list.  -->
             <%#= label_tag(:station, "Station: ") %>
             <%#= text_field_tag(:station) %>
@@ -33,11 +26,10 @@
               <%= label_tag(:selected_station, "Station: ") %>
               <%=  select_tag(:selected_station, options_from_collection_for_select(@stations, :id, :station_name), class: "form-control")%>
             </div>
-
             <%= button_tag("View", type: "button", class: "view_station btn btn-default" ) %>
           <% end %>
-
         </div>
+
         <div id="allStations" class="tab-pane fade">
           <h3>Space for all stations here. </h3>
           <ul>
@@ -73,14 +65,6 @@
 
   </div> <!-- end row-container -->
 </div> <!-- end main-container -->
-
-
-<!-- <div class="test-div teal lighten-2">
-  test div here.
-</div> -->
-
-
-
 
 <script>
   $('body').css('background-color', '#E6E4E4');
