@@ -3,20 +3,18 @@
     <div class="control-center col-xs-12 col-sm-4 col-md-3">
 
       <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#tripPlanning">Home</a></li>
-        <li><a data-toggle="tab" href="#stationView">Station</a></li>
+
+        <li class="active"><a data-toggle="tab" href="#stationView">Station</a></li>
         <li><a data-toggle="tab" href="#allStations">Stations</a></li>
+        <li><a data-toggle="tab" href="#tripPlanning">Plan trip</a></li>
+        <li><a data-toggle="tab" href="#advancedPlanning">Advanced</a></li>
+
       </ul>
 
       <div class="tab-content">
-        <div id="tripPlanning" class="tab-pane fade in active">
-          <h3>Trip Details </h3>
-          <ul>
-            <li>Form containing start and stop destinations.</li>
-            <li>Possibly other things later.</li>
-          </ul>
-        </div>
-        <div id="stationView" class="tab-pane fade">
+
+
+        <div id="stationView" class="tab-pane fade in active">
           <h3>Station</h3>
           <ul>
             <li>Search box to select which station you want to view here.</li>
@@ -29,6 +27,23 @@
           <ul>
             <li>Not yet sure what this will look like yet. Not sure what anything will look like. </li>
             <li>CSS sucks.</li>
+          </ul>
+        </div>
+
+        <div id="tripPlanning" class="tab-pane fade">
+          <h3>Trip Details </h3>
+          <ul>
+            <li>Form containing start and stop destinations.</li>
+            <li>Possibly other things later.</li>
+          </ul>
+        </div>
+
+        <div id="advancedPlanning" class="tab-pane fade">
+          <h3>Advanced planning </h3>
+          <ul>
+            <li>This will enable users manually map out stations.</li>
+            <li>can select multiple stations to see them appear on map.</li>
+            <li>can select start and end point and also select points in between.</li>
           </ul>
         </div>
 
