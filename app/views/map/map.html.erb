@@ -29,11 +29,12 @@
             <!-- TODO: replace the select with a search box so user can type name of stations and filter list.  -->
             <%#= label_tag(:station, "Station: ") %>
             <%#= text_field_tag(:station) %>
+            <div class="form-group">
+              <%= label_tag(:selected_station, "Station: ") %>
+              <%=  select_tag(:selected_station, options_from_collection_for_select(@stations, :id, :station_name), class: "form-control")%>
+            </div>
 
-            <%= label_tag(:selected_station, "Station: ") %>
-            <%=  select_tag(:selected_station, options_from_collection_for_select(@stations, :id, :station_name))%>
-
-            <%= submit_tag("View", class: "view_station" ) %>
+            <%= button_tag("View", type: "button", class: "view_station btn btn-default" ) %>
           <% end %>
 
         </div>
@@ -85,13 +86,12 @@
   $('body').css('background-color', '#E6E4E4');
 
   $('.view_station').on('click', function(e){
-    e.preventDefault();
 
     //make necessary ajax get request. set up js.erb file if necessary.
     //also ensure that map controller is set up to receive this request.
     //decide if it is even necessary to make call. For starting, we might just need to
     //make use of the info we have in the @stations variable since it is available to us
-    //at this point. 
+    //at this point.
   });
 
 </script>
