@@ -1,26 +1,28 @@
+/*
+Why is my 100% settings not working properly. CSS really sucks.??
+This fixed it html, body {margin:0;padding:0;height:100%;}
+*/
+
+html, body {margin:0;padding:0;height:100%;}
+
 .main-container {
-  height:100% !important;
+  height:100%;
+}
+
+
+.row-container {
+  height:100%;
 }
 
 .control-center {
   background-color: #BFEFFA;
-  height: 100% !important;
+  height: 100%;
 }
 
-/*
-Why is my 100% settings not working properly. CSS really sucks.
 
-*/
+
 
 .map-container {
   background-color:#8DFAD8;
-  height: 380px !important;
-}
-
-/*#map {
-  height: 100%;
-}*/
-
-.test-div {
   height: 100%;
 }
