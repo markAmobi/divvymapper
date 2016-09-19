@@ -60,11 +60,16 @@
       </div> <!-- end tab-content -->
     </div> <!-- end control-center -->
 
-    <div class="map-container col-xs-12 col-sm-8 col-md-9">
-      map goes here
+    <div class="map-container col-xs-12 col-sm-8 col-md-9" id="map">
+
     </div> <!-- end map-container -->
   </div> <!-- end row-container -->
 </div> <!-- end main-container -->
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>&v=3&callback=initMap">
+
+</script>
 
 <script>
   $('body').css('background-color', '#E6E4E4');
@@ -76,4 +81,12 @@
     //make use of the info we have in the @stations variable since it is available to us
     //at this point.
   });
+
+  var map;
+  function initMap(){
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 40.7413549, lng: -73.9980244},
+      zoom: 13
+    });
+  }
 </script>
