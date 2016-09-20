@@ -33,7 +33,7 @@
 
 
   var map;
-
+  var markers = [];
   function initMap(){
     var bounds = new google.maps.LatLngBounds();
     map = new google.maps.Map(document.getElementById('map'), {
@@ -53,6 +53,7 @@
         animation: google.maps.Animation.DROP,
         id:s.id
       });
+      markers.push(marker);
       bounds.extend(marker.position);
     <% end %>
     map.fitBounds(bounds);
