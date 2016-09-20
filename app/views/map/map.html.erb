@@ -10,55 +10,10 @@
       </ul>
 
       <div class="tab-content container">
-        
-        <div id="allStations" class="tab-pane fade">
-          <h3>Space for all stations here. </h3>
-          <ul>
-            <li>Not yet sure what this will look like yet. Not sure what anything will look like. </li>
-            <li>CSS sucks.</li>
-          </ul>
-        </div>
-
-        <div id="stationView" class="tab-pane fade in active">
-          <h3>Station</h3>
-          <ul>
-            <li>Search box to select which station you want to view here.</li>
-            <li>View particular station here. Might have interaction with stations here.</li>
-            <li>Some other things as they come to mind. </li>
-          </ul>
-
-          <%= form_tag do  %>
-            <!-- TODO: replace the select with a search box so user can type name of stations and filter list.  -->
-            <%#= label_tag(:station, "Station: ") %>
-            <%#= text_field_tag(:station) %>
-            <div class="form-group">
-              <%= label_tag(:selected_station, "Station: ") %>
-              <%=  select_tag(:selected_station, options_from_collection_for_select(@stations, :id, :station_name), class: "form-control")%>
-            </div>
-            <%= button_tag("View", type: "button", class: "view_station btn btn-default" ) %>
-          <% end %>
-        </div>
-
-
-        <div id="tripPlanning" class="tab-pane fade">
-          <h3>Trip Details </h3>
-          <ul>
-            <li>Form containing start and stop divvy stations.(in the future, should be any location not just divvy.)</li>
-            <li>User will probably be able to see 5(or more) nearest stations around start and stop. </li>
-            <li>At some point, be able to get user's current location and use for mapping.</li>
-            <li>Possibly other things later.</li>
-          </ul>
-        </div>
-
-        <div id="advancedPlanning" class="tab-pane fade">
-          <h3>Advanced planning </h3>
-          <ul>
-            <li>This will enable users manually map out stations.</li>
-            <li>can select multiple stations to see them appear on map.</li>
-            <li>can select start and end point and also select points in between.</li>
-          </ul>
-        </div>
-
+        <%= render "stations_form" %>
+        <%= render "station_form" %>
+        <%= render "plan_trip_form" %>
+        <%= render "advanced_form" %>
       </div> <!-- end tab-content -->
     </div> <!-- end control-center -->
 
