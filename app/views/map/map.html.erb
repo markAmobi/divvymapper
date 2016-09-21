@@ -41,7 +41,7 @@
       center: {lat: 41.8725614, lng: -87.6245382},
       zoom: 13,
       mapTypeControl: false,
-      scrollwheel: false //prevent mouse scroll zoom when over map. 
+      scrollwheel: false //prevent mouse scroll zoom when over map.
     });
 
     <% @stations.each do |station| %>
@@ -57,12 +57,12 @@
       });
       markers.push(marker);
       marker.addListener('click', function(){
-  populateInfoWindow(this, largeInfowindow);
-});
+        populateInfoWindow(this, largeInfowindow);
+      });
       bounds.extend(marker.position);
     <% end %>
     map.fitBounds(bounds);
-  }
+  }//end initMap
 
   function populateInfoWindow(marker, infowindow){
     if(infowindow.marker != marker){
