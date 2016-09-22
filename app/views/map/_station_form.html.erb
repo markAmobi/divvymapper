@@ -1,8 +1,6 @@
 <div id="stationView" class="tab-pane fade">
   <%= form_tag do  %>
     <!-- TODO: replace the select with a search box so user can type name of stations and filter list.  -->
-    <%#= label_tag(:station, "Station: ") %>
-    <%#= text_field_tag(:station) %>
     <div class="form-group">
       <%= label_tag(:selected_station, "Select Station: ") %>
       <%=  select_tag(:selected_station, options_from_collection_for_select(@stations, :id, :station_name), class: "form-control")%>
