@@ -45,7 +45,16 @@
       center: {lat: 41.8725614, lng: -87.6245382},
       zoom: 13,
       mapTypeControl: false,
-      scrollwheel: false //prevent mouse scroll zoom when over map.
+      scrollwheel: false, //prevent mouse scroll zoom when over map.
+      zoomControl: true,
+      zoomControlOptions: {
+          position: google.maps.ControlPosition.LEFT_CENTER
+      },
+      // scaleControl: true,
+      streetViewControl: true,
+      streetViewControlOptions: {
+          position: google.maps.ControlPosition.LEFT_TOP
+      },
     });
 
     <% @stations.each do |station| %>
