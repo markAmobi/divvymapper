@@ -29,15 +29,17 @@
 </script>
 
 <script>
+  var markers = [];
   $('body').css('background-color', '#E6E4E4');
 
   $(".view-station").click(function(){
     var id = $('#selected_station').val();
     $.get('/map/' + id);
+
+    removeFromMap(markers);
   })
 
   var map;
-  var markers = [];
   function initMap(){
     var largeInfowindow = new google.maps.InfoWindow();
     var bounds = new google.maps.LatLngBounds();
@@ -85,6 +87,12 @@
       infowindow.addListener('closeclick', function(){
         infowindow.marker = null ;
       });
+    }
+  }
+
+  function removeFromMap(markers){
+    for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(null);
     }
   }
 
