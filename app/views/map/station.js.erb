@@ -1,1 +1,10 @@
-
+var s = <%= @station.to_json.html_safe %>
+var position = {lat: s.latitude, lng: s.longitude}
+var title = s.station_name;
+var marker = new google.maps.Marker({
+  map: map,
+  position: position,
+  title: title,
+  animation: google.maps.Animation.DROP,
+  id:s.id
+});
