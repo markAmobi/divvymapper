@@ -9,5 +9,6 @@ var marker = new google.maps.Marker({
   animation: google.maps.Animation.DROP,
   id:s.id
 });
-map.setCenter(position);
+map.panTo(position);
+//map.setCenter(position);
 map.setZoom(15);
