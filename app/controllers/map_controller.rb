@@ -7,4 +7,9 @@ class MapController < ApplicationController
   def station
     @station = Station.find(params[:station_id])
   end
+
+  def nearest_stations
+    
+  end
+
 end
