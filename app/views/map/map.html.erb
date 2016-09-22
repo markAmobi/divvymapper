@@ -31,6 +31,10 @@
 <script>
   $('body').css('background-color', '#E6E4E4');
 
+  $(".view-station").click(function(){
+    var id = $('#selected_station').val();
+    $.get('/map/' + id);
+  })
 
   var map;
   var markers = [];
