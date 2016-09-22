@@ -1,3 +1,4 @@
+// TODO: Add code to zoom in more beore or after ponit is placed on map.
 var s = <%= @station.to_json.html_safe %>
 var position = {lat: s.latitude, lng: s.longitude}
 var title = s.station_name;
@@ -8,3 +9,5 @@ var marker = new google.maps.Marker({
   animation: google.maps.Animation.DROP,
   id:s.id
 });
+map.setCenter(position);
+map.setZoom(15);
