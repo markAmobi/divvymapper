@@ -11,7 +11,7 @@
     <%#= label_tag(:station, "Station: ") %>
     <%#= text_field_tag(:station) %>
     <div class="form-group">
-      <%= label_tag(:selected_station, "Station: ") %>
+      <%= label_tag(:selected_station, "Select Station: ") %>
       <%=  select_tag(:selected_station, options_from_collection_for_select(@stations, :id, :station_name), class: "form-control")%>
     </div>
     <%= button_tag("View", type: "button", class: "view-station btn btn-default" ) %>
