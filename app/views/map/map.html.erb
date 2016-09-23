@@ -6,14 +6,16 @@
         <li  class="active"><a data-toggle="tab" href="#allStations">Stations</a></li>
         <li><a data-toggle="tab" href="#stationView">Station</a></li>
         <li><a data-toggle="tab" href="#tripPlanning">Plan trip</a></li>
-        <li><a data-toggle="tab" href="#advancedPlanning">Advanced</a></li>
+
+        <!-- uncomment this out when needed. -->
+        <!-- <li><a data-toggle="tab" href="#advancedPlanning">Advanced</a></li> -->
       </ul>
 
       <div class="tab-content container">
         <%= render "stations_form" %>
         <%= render "station_form" %>
         <%= render "plan_trip_form" %>
-        <%= render "advanced_form" %>
+        <%#= render "advanced_form" %>
       </div> <!-- end tab-content -->
     </div> <!-- end control-center -->
 
