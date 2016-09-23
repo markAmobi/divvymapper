@@ -10,20 +10,26 @@
     <%= button_tag("View", type: "button", class: "view-station btn btn-default" ) %>
   <% end %>
 
-
 <br>
 <br>
 <br>
 
 <!-- indicate which station is currently centered on. also store needed station data(id) for next get request to nearest station.  -->
+<div class="current-station" data-id data-lat data-lng>
+</div>
+<br>
+<br>
 
 
-  <%= form_tag do  %>
-    <!-- TODO: replace the select with a search box so user can type name of stations and filter list.  -->
+  <div class="num-nearest-stations" style="display:none;">
+    <%= form_tag do  %>
     <div class="form-group">
       <%= label_tag(:num_nearest_stations, "Select number of closest stations you want to see:  ") %>
       <%=  select_tag(:num_nearest_stations, options_for_select([["5", "5"], ["6","6"] ,["7","7"], ["8","8"], ["9", "9"], ["10", "10"]]), class: "form-control")%>
     </div>
     <%= button_tag("see-stations", type: "button", class: "view-closest-stations btn btn-default" ) %>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+
+
+</div> <!-- end tab-pane -->
