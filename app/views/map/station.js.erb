@@ -1,11 +1,9 @@
-//indicate *  currently centered on* station.
-
 $(".current-station").attr("data-id", <%= @station.id %>);
 $(".current-station").attr("data-lat", '<%= @station.latitude %>');
 $(".current-station").attr("data-lng", '<%= @station.longitude %>');
 $(".current-station").html("Current Station: <span><%= @station.station_name %></span>");
-
 $(".num-nearest-stations").show();
+
 // TODO: Add code to zoom in more beore or after ponit is placed on map.
 var s = <%= @station.to_json.html_safe %>
 var position = {lat: s.latitude, lng: s.longitude}
