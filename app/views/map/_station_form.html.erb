@@ -27,7 +27,7 @@
       <%= label_tag(:num_nearest_stations, "Select number of closest stations you want to see:  ") %>
       <%=  select_tag(:num_nearest_stations, options_for_select([["5", "5"], ["6","6"] ,["7","7"], ["8","8"], ["9", "9"], ["10", "10"]]), class: "form-control")%>
     </div>
-    <%= button_tag("see-stations", type: "button", class: "view-closest-stations btn btn-default" ) %>
+    <%= button_tag("see near Stations", type: "button", class: "view-closest-stations btn btn-default" ) %>
     <% end %>
   </div>
 
