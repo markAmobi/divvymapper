@@ -32,7 +32,18 @@
     var id = $('#selected_station').val();
     $.get('/map/' + id);
     removeFromMap(markers);
-  })
+  });
+
+  $(".view-closest-stations").click(function(){
+    var id = $('.current-station').attr("data-id");
+    var num_nearest_stations = $('#num_nearest_stations').val();
+
+    $.get('/nearest_stations/' + id, $.param({num_nearest_stations: num_nearest_stations}));
+    // removeFromMap(markers);
+    
+  });
+
+
 
   var map;
   function initMap(){
