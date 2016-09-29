@@ -6,9 +6,10 @@ task :update_stations => :environment do
 end
 
 task :test_helper => :environment do
-  do_stuff
+  # do_stuff
+  #ap ENV['GOOGLE_MAPS_API_KEY']
 end
 
 task :tt => :environment do
-  ap get_distance_matrix({latitude: 41.8725614, longitude: -87.6245382}, {latitude: 41.86722595682,longitude: -87.6153553902})
+  get_distance_matrix({latitude: 41.8725614, longitude: -87.6245382}, {latitude: 41.86722595682,longitude: -87.6153553902})
 end
