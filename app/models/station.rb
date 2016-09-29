@@ -1,5 +1,10 @@
 class Station < ApplicationRecord
 
+
+  def location
+    {latitude: latitude, logitude: longitude}
+  end
+
   def self.get_live_feed
     data = HTTP.get("https://feeds.divvybikes.com/stations/stations.json").parse["stationBeanList"]
     ## convert camel case to snake case.
@@ -14,5 +19,9 @@ class Station < ApplicationRecord
     stations.each do |station|
       self.create(station)
     end
+  end
+
+  def get_distance_info(other_station)
+    origin = {}
   end
 end
