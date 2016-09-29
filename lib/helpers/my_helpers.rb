@@ -13,3 +13,7 @@ def get_distance_matrix(start_point, end_point)
 
   # still need to do stuff with the response.
 end
+
+def get_divvy_data
+  data = HTTP.get("https://feeds.divvybikes.com/stations/stations.json").parse["stationBeanList"]
+end
