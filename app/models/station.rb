@@ -22,6 +22,6 @@ class Station < ApplicationRecord
   end
 
   def get_distance_info(other_station)
-    origin = {}
+    get_distance_matrix(location, other_station.location)
   end
 end
