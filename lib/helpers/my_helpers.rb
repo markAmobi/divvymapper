@@ -15,5 +15,9 @@ def get_distance_matrix(start_point, end_point)
 end
 
 def get_divvy_data
-  Station.get_live_feed
+  data = HTTP.get("https://feeds.divvybikes.com/stations/stations.json").parse["stationBeanList"]
+  ## convert camel case to snake case.
+  stations = data.map do |s|
+    s.map{|k,v| [k.underscore,v]}.to_h
+  end
 end

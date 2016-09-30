@@ -6,11 +6,7 @@ class Station < ApplicationRecord
   end
 
   def self.get_live_feed
-    data = HTTP.get("https://feeds.divvybikes.com/stations/stations.json").parse["stationBeanList"]
-    ## convert camel case to snake case.
-    stations = data.map do |s|
-      s.map{|k,v| [k.underscore,v]}.to_h
-    end
+    get_divvy_data
   end
 
   def self.update_stations
