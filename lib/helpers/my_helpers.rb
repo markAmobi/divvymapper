@@ -15,6 +15,7 @@ def get_distance_matrix(start_point, end_point)
 end
 
 ##assume single origin-destination.
+##this is used to parse response of call to distance matrix api. get_distance_matrix
 def parse_distance_matrix(response)
   distance = response["rows"][0]["elements"][0]["distance"]["value"]
   distance_text = response["rows"][0]["elements"][0]["distance"]["text"]
