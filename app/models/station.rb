@@ -37,7 +37,9 @@ class Station < ApplicationRecord
     ## even if I get 25 destination per request, that still leaves me with 6728 requests.
     ## but I have 2500 per day. I should be able to set this up so I just get all the data I need
     ## in three days. and probably store in csv or something so I don't have to get it again.
-     
+    ## before going ahead to implement this, I should probably think about interaction with the directions
+    ## API and see if it's independent. if not, then i have to do that at same time in order to have data to
+    ## to display directions info on the map. 
     ## need to look into encoded polyline, maybe? or just put multiple destinations in request.
     raise "DONT DO THIS!!!! Google API limits has limits. "
     Station.find_each do |station|
