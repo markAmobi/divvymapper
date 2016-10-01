@@ -1,5 +1,5 @@
 class Station < ApplicationRecord
-
+  has_many :destinations, as: :origin
 
   def location
     {latitude: latitude, logitude: longitude}
