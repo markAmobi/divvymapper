@@ -28,8 +28,10 @@ class Station < ApplicationRecord
 
   ##for updating individual stations destinations.
   def update_destinations
+    ## see https://developers.google.com/maps/documentation/distance-matrix/usage-limits
+    raise "DONT DO THIS!!!! Google API limits has limits. "
     Station.find_each do |station|
-      update_destination(other_station)
+      update_destination(station)
     end
   end
 
