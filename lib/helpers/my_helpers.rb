@@ -14,6 +14,17 @@ def get_distance_matrix(start_point, end_point)
   # still need to do stuff with the response.
 end
 
+##assume single origin-destination.
+def parse_distance_matrix(response)
+  distance = response["rows"][0]["elements"][0]["distance"]["value"]
+  distance_text = response["rows"][0]["elements"][0]["distance"]["text"]
+  duration = response["rows"][0]["elements"][0]["duration"]["value"]
+  duration_text = response["rows"][0]["elements"][0]["duration"]["text"]
+
+  ## note: this might change if I eventually decide to store distance and duration as jsonb instead.
+  { distance: distance, distance_text: distance_text, duration: duration, duration_text: duration_text }
+end
+
 def get_divvy_data
   data = HTTP.get("https://feeds.divvybikes.com/stations/stations.json").parse["stationBeanList"]
   ## convert camel case to snake case.
