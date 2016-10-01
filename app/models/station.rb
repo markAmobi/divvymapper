@@ -29,6 +29,12 @@ class Station < ApplicationRecord
   ##for updating individual stations destinations.
   def update_destinations
     ## see https://developers.google.com/maps/documentation/distance-matrix/usage-limits
+    ## really need a way send multiple requests while still within API rate limits.
+    ## right now, I'm doing 1pair of origin/destination per request.
+    ## need 580 * 580 = 336400 based on my current setup.
+    ## can cut this in half by adding some logic not to redo pairs that have been done.
+    ## this is still a lot. 168200.
+    ## need to look into encoded polyline, maybe? or just put multiple destinations in request.  
     raise "DONT DO THIS!!!! Google API limits has limits. "
     Station.find_each do |station|
       update_destination(station)
