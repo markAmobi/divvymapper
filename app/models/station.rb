@@ -34,7 +34,11 @@ class Station < ApplicationRecord
     ## need 580 * 580 = 336400 based on my current setup.
     ## can cut this in half by adding some logic not to redo pairs that have been done.
     ## this is still a lot. 168200.
-    ## need to look into encoded polyline, maybe? or just put multiple destinations in request.  
+    ## even if I get 25 destination per request, that still leaves me with 6728 requests.
+    ## but I have 2500 per day. I should be able to set this up so I just get all the data I need
+    ## in three days. and probably store in csv or something so I don't have to get it again.
+     
+    ## need to look into encoded polyline, maybe? or just put multiple destinations in request.
     raise "DONT DO THIS!!!! Google API limits has limits. "
     Station.find_each do |station|
       update_destination(station)
