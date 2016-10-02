@@ -17,7 +17,6 @@ class Station < ApplicationRecord
     end
   end
 
-
   def update_destination(other_station)
     dest_info = self.get_distance_info(other_station)
     d = Destination.new
@@ -39,7 +38,7 @@ class Station < ApplicationRecord
     ## in three days. and probably store in csv or something so I don't have to get it again.
     ## before going ahead to implement this, I should probably think about interaction with the directions
     ## API and see if it's independent. if not, then i have to do that at same time in order to have data to
-    ## to display directions info on the map. 
+    ## to display directions info on the map.
     ## need to look into encoded polyline, maybe? or just put multiple destinations in request.
     raise "DONT DO THIS!!!! Google API limits has limits. "
     Station.find_each do |station|
