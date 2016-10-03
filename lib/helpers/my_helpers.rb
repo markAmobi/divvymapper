@@ -2,6 +2,7 @@ def do_stuff
   puts "HELLO, there"
 end
 
+##TODO: Channge this method to take in multiple origins and destinations. 
 # start and end are {latitude: v, longitude: v}
 def get_distance_matrix(start_point, end_point)
   #sort is just to ensure lat comes first.
