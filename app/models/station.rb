@@ -48,6 +48,9 @@ class Station < ApplicationRecord
 
   ## this method will be used to update the destinations among all stations.
   def self.update_all_destinations
+
+    ## due to ap usage limits, this method might use different keys if run once. 
+
     Station.find_each do |station|
       station.update_destinations
     end
