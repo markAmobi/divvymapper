@@ -16,6 +16,8 @@ class Station < ApplicationRecord
   ## (assume single origin, possibly multiple destinations.)
   def self.update_chunk(group)
     # raise "Cannot be more than 25 items " if group.values.flatten.count > 25
+    # based on preliminary test, it seems like 1 origin to 100 destination works contrary to what I understood from the
+    # distance matrix API limits documentation. https://developers.google.com/maps/documentation/distance-matrix/usage-limits
     start_stations = Station.find(group["origins"])
     end_stations = Station.find(group["destinations"])
 
@@ -28,7 +30,10 @@ class Station < ApplicationRecord
     request_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=#{origins}&destinations=#{destinations}&mode=bicycling&key=#{ENV['GOOGLE_MAPS_API_KEY_TEST']}"
     response = HTTP.get(request_url).parse
 
-
+    ## at this point, we will need to parse the response and save to database.
+    ## still have access to ids, so distances shouldn't be mixed up.
+    ## might need to save the address gotten back from Google maps even though it may not be precise. we
+    ## can just use for estimate reference. 
 
   end
 
