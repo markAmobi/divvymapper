@@ -1,12 +1,35 @@
 class Station < ApplicationRecord
   has_many :destinations, as: :origin
 
+  ##latitude comes first by default.
   def location
-    {latitude: latitude, logitude: longitude}
+    # {latitude: latitude, logitude: longitude}
+    [latitude, longitude]
   end
 
   def self.get_live_feed
     get_divvy_data
+  end
+
+
+  ## group is a hash where origins point to origins id, destinations point to detinations id. must be 24 or less. thanks to API limits.
+  ## (assume single origin, possibly multiple destinations.)
+  def self.update_chunk(group)
+    # raise "Cannot be more than 25 items " if group.values.flatten.count > 25
+    start_stations = Station.find(group["origins"])
+    end_stations = Station.find(group["destinations"])
+
+    start_locations = start_stations.map(&:location)
+    end_locations = end_stations.map(&:location)
+
+    origins = start_locations.map{ |l| l.map(&:to_s).join(",") }.join("|")
+    destinations = end_locations.map{ |l| l.map(&:to_s).join(",") }.join("|")
+
+    request_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=#{origins}&destinations=#{destinations}&mode=bicycling&key=#{ENV['GOOGLE_MAPS_API_KEY_TEST']}"
+    response = HTTP.get(request_url).parse
+
+
+
   end
 
   def self.update_stations
@@ -49,7 +72,7 @@ class Station < ApplicationRecord
   ## this method will be used to update the destinations among all stations.
   def self.update_all_destinations
 
-    ## due to ap usage limits, this method might use different keys if run once. 
+    ## due to ap usage limits, this method might use different keys if run once.
 
     Station.find_each do |station|
       station.update_destinations

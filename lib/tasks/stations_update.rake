@@ -7,9 +7,14 @@ end
 
 task :test_helper => :environment do
   # do_stuff
-  #ap ENV['GOOGLE_MAPS_API_KEY']
+  ap ENV['GOOGLE_MAPS_API_KEY_TEST']
 end
 
 task :test_distance_matrix => :environment do
   get_distance_matrix({latitude: 41.8725614, longitude: -87.6245382}, {latitude: 41.86722595682,longitude: -87.6153553902})
+end
+
+
+task :test_update_datamatrix do
+
 end
