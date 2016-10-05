@@ -16,6 +16,9 @@ def get_distance_duration(start_locations, end_locations)
 end
 
 ## transform google API response to what I feel will be easier for me to handle.
+## this method is to be used to parse the response from get_distance_duration above.
+## it translates the response to a format thats easier for me to store things in my
+## destinations table. 
 def translate_response(start_locations, end_locations, response)
 
   final_output = {}
@@ -37,8 +40,6 @@ def translate_response(start_locations, end_locations, response)
 
       dest_hash[end_locations[d_index]] = d
     end
-
-
 
     final_output[location] = dest_hash
   end
