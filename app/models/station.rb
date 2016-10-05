@@ -24,16 +24,12 @@ class Station < ApplicationRecord
     start_locations = start_stations.map(&:location)
     end_locations = end_stations.map(&:location)
 
-    origins = start_locations.map{ |l| l.map(&:to_s).join(",") }.join("|")
-    destinations = end_locations.map{ |l| l.map(&:to_s).join(",") }.join("|")
-
-    request_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=#{origins}&destinations=#{destinations}&mode=bicycling&key=#{ENV['GOOGLE_MAPS_API_KEY_TEST']}"
-    response = HTTP.get(request_url).parse
+    get_distance_duration(start_locations, end_locations)
 
     ## at this point, we will need to parse the response and save to database.
     ## still have access to ids, so distances shouldn't be mixed up.
     ## might need to save the address gotten back from Google maps even though it may not be precise. we
-    ## can just use for estimate reference. 
+    ## can just use for estimate reference.
 
   end
 
