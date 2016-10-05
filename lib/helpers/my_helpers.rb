@@ -2,18 +2,6 @@ def do_stuff
   puts "HELLO, there"
 end
 
-##TODO: Channge this method to take in multiple origins and destinations.
-# start and end are {latitude: v, longitude: v}
-def get_distance_matrix(start_point, end_point)
-  #sort is just to ensure lat comes first.
-  origin = start_point.sort.to_h.values.map(&:to_s).join(",")
-  destination = end_point.sort.to_h.values.map(&:to_s).join(",")
-  request_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=#{origin}&destinations=#{destination}&mode=bicycling&key=#{ENV['GOOGLE_MAPS_API_KEY']}"
-  response = HTTP.get(request_url).parse
-
-  # still need to do stuff with the response.
-end
-
 ## start_locations = [[lat,lng]].
 ## not that this returns info for all start end combination given.
 ## returns distance duration info.
@@ -30,6 +18,7 @@ end
 
 ##assume single origin-destination.
 ##this is used to parse response of call to distance matrix api. get_distance_matrix
+## need to update this for get_distance_duration
 def parse_distance_matrix(response)
   distance = response["rows"][0]["elements"][0]["distance"]["value"]
   distance_text = response["rows"][0]["elements"][0]["distance"]["text"]
