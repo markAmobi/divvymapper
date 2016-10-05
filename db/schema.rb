@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 20161001025029) do
     t.string   "duration_text"
     t.integer  "origin_id"
     t.string   "origin_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.string   "origin_address"
+    t.string   "address"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.index ["origin_type", "origin_id"], name: "index_destinations_on_origin_type_and_origin_id", using: :btree
   end
 

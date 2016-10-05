@@ -7,7 +7,9 @@ class CreateDestinations < ActiveRecord::Migration[5.0]
       t.string :duration_text
       t.integer :origin_id
       t.string :origin_type
-
+      t.string :origin_address
+      t.string :address
+      
       t.timestamps
     end
 
