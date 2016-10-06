@@ -21,6 +21,7 @@ class CreateStations < ActiveRecord::Migration[5.0]
       t.string :land_mark
       t.boolean :is_renting
 
+      t.float :geo_coords, array: true, default: []
 
       t.timestamps
     end

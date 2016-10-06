@@ -1,12 +1,6 @@
 class Station < ApplicationRecord
   has_many :destinations, as: :origin
 
-  ##latitude comes first by default.
-  def location
-    # {latitude: latitude, logitude: longitude}
-    [latitude, longitude]
-  end
-
   def self.get_live_feed
     get_divvy_data
   end
@@ -21,13 +15,13 @@ class Station < ApplicationRecord
     start_stations = Station.find(group["origins"])
     end_stations = Station.find(group["destinations"])
 
-    start_locations = start_stations.map(&:location)
-    end_locations = end_stations.map(&:location)
+    start_locations = start_stations.map(&:geo_coords)
+    end_locations = end_stations.map(&:geo_coords)
 
     response = get_distance_duration(start_locations, end_locations)
 
     parsed_response = translate_response(start_locations, end_locations, response)
-    
+
 
     ## still have access to ids, so distances shouldn't be mixed up.
     ## might need to save the address gotten back from Google maps even though it may not be precise. we
@@ -35,13 +29,17 @@ class Station < ApplicationRecord
 
   end
 
-  # def self.update_stations
-  #   self.destroy_all
-  #   stations = self.get_live_feed
-  #   stations.each do |station|
-  #     self.create(station)
-  #   end
-  # end
+  def self.update_stations
+    self.destroy_all
+    stations = self.get_live_feed
+    stations.each do |station|
+      s = station
+      s["geo_coords"] = [station["latitude"], station["longitude"]]
+      self.create(s)
+    end
+  end
+
+
   #
   # def update_destination(other_station)
   #   dest_info = self.get_distance_info(other_station)

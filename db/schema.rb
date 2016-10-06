@@ -49,8 +49,9 @@ ActiveRecord::Schema.define(version: 20161001025029) do
     t.datetime "last_communication_time"
     t.string   "land_mark"
     t.boolean  "is_renting"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.float    "geo_coords",              default: [],              array: true
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
 end
