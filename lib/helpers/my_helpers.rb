@@ -18,7 +18,7 @@ end
 ## transform google API response to what I feel will be easier for me to handle.
 ## this method is to be used to parse the response from get_distance_duration above.
 ## it translates the response to a format thats easier for me to store things in my
-## destinations table. 
+## destinations table.
 def translate_response(start_locations, end_locations, response)
 
   final_output = {}
@@ -45,18 +45,6 @@ def translate_response(start_locations, end_locations, response)
   end
 
   final_output
-end
-
-##assume single origin-destination.
-##this is used to parse response of call to distance matrix api. get_distance_matrix
-## need to update this for get_distance_duration
-def parse_distance_matrix(response)
-  distance = response["rows"][0]["elements"][0]["distance"]["value"]
-  distance_text = response["rows"][0]["elements"][0]["distance"]["text"]
-  duration = response["rows"][0]["elements"][0]["duration"]["value"]
-  duration_text = response["rows"][0]["elements"][0]["duration"]["text"]
-  ## note: this might change if I eventually decide to store distance and duration as jsonb instead.
-  { distance: distance, distance_text: distance_text, duration: duration, duration_text: duration_text }
 end
 
 def get_divvy_data

@@ -24,9 +24,11 @@ class Station < ApplicationRecord
     start_locations = start_stations.map(&:location)
     end_locations = end_stations.map(&:location)
 
-    get_distance_duration(start_locations, end_locations)
+    response = get_distance_duration(start_locations, end_locations)
 
-    ## at this point, we will need to parse the response and save to database.
+    parsed_response = translate_response(start_locations, end_locations, response)
+    
+
     ## still have access to ids, so distances shouldn't be mixed up.
     ## might need to save the address gotten back from Google maps even though it may not be precise. we
     ## can just use for estimate reference.
