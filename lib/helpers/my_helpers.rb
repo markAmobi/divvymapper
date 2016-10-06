@@ -28,7 +28,7 @@ def translate_response(start_locations, end_locations, response)
 
   start_locations.each_with_index do |location, o_index|
 
-    dest_hash = {"origin_address" => o_addresses[o_index]}
+    dest_hash = {"origin_address" => o_addresses[o_index], "destinations" => {} }
 
     rows[o_index]["elements"].each_with_index do |destination_details, d_index|
       d = {}
@@ -38,7 +38,7 @@ def translate_response(start_locations, end_locations, response)
       d["duration_text"] = destination_details["duration"]["text"]
       d["address"] = d_addresses[d_index]
 
-      dest_hash[end_locations[d_index]] = d
+      dest_hash["destinations"][end_locations[d_index]] = d
     end
 
     final_output[location] = dest_hash

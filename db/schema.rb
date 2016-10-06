@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 20161001025029) do
     t.string   "origin_type"
     t.string   "origin_address"
     t.string   "address"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.float    "geo_coords",     default: [],              array: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.index ["origin_type", "origin_id"], name: "index_destinations_on_origin_type_and_origin_id", using: :btree
   end
 

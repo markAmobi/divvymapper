@@ -19,9 +19,20 @@ class Station < ApplicationRecord
     end_locations = end_stations.map(&:geo_coords)
 
     response = get_distance_duration(start_locations, end_locations)
-
     parsed_response = translate_response(start_locations, end_locations, response)
 
+    parsed_response.each do |o_coords, o_details|
+      start_station = Station.where(geo_coords: "{#{o_coords.join(',')}}").first
+      o_details["destinations"].each do |d_coords, d_details|
+        other_details = {"geo_coords" => d_coords, "origin_address" => o_details["origin_address"] }
+
+        d = d_details.merge(other_details)
+
+        destination = Destination.new(d)
+        destination.origin = start_station
+        destination.save!
+      end
+    end
 
     ## still have access to ids, so distances shouldn't be mixed up.
     ## might need to save the address gotten back from Google maps even though it may not be precise. we

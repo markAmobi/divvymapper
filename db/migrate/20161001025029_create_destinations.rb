@@ -9,6 +9,7 @@ class CreateDestinations < ActiveRecord::Migration[5.0]
       t.string :origin_type
       t.string :origin_address
       t.string :address
+      t.float :geo_coords, array: true, default: []
       
       t.timestamps
     end
