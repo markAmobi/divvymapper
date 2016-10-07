@@ -1,3 +1,5 @@
+$API_KEY = ENV['GOOGLE_MAPS_API_KEY_TEST']
+
 def do_stuff
   puts "HELLO, there"
 end
@@ -10,7 +12,7 @@ def get_distance_duration(start_locations, end_locations)
   destinations = end_locations.map{ |l| l.map(&:to_s).join(",") }.join("|")
 
   request_url = "https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins="+
-  "#{origins}&destinations=#{destinations}&mode=bicycling&key=#{ENV['GOOGLE_MAPS_API_KEY_TEST']}"
+  "#{origins}&destinations=#{destinations}&mode=bicycling&key=#{$API_KEY}"
 
   response = HTTP.get(request_url).parse
 end

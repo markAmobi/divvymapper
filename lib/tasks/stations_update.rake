@@ -18,3 +18,7 @@ end
 task :test_update_datamatrix do
 
 end
+
+task :update_stations_distances do
+  Station.update_stations_distances
+end

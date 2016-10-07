@@ -5,11 +5,39 @@ class Station < ApplicationRecord
     get_divvy_data
   end
 
+  ## update all stations distances among all stations.
+  def self.update_stations_distances
+    Destination.where(origin_type: "Station").destroy_all
+
+    Station.find_each do |station|
+
+      ## use 2 keys to split work.
+      if station.id > 312
+        $API_KEY = ENV['GOOGLE_MAPS_API_KEY']
+      end
+      station.update_station_distances
+    end
+  end
+
+
+  ## seems like a particular station is screwing things up.
+  ## try to update destination info for each station individually and see at what point it fails/
+  #updates all stations distance for a particular station.
+  def update_station_distances
+    Station.all.each_slice(24) do |slice|
+      sleep(1)
+      start_station = [id]
+      end_stations = [slice.map(&:id)]
+      Station.update_multiple_stations({"origins" => start_station, "destinations" => end_stations})
+    end
+
+  end
+
 
   ## this is used to update destinations between origin and destination stations based on id.
   ## group is a hash where origins point to origins id, destinations point to detinations id. must be 24 or less. thanks to API limits.
   ## (assume single origin, possibly multiple destinations.)
-  def self.update_mutiple_stations(group)
+  def self.update_multiple_stations(group)
     # raise "Cannot be more than 25 items " if group.values.flatten.count > 25
     # based on preliminary test, it seems like 1 origin to 100 destination works contrary to what I understood from the
     # distance matrix API limits documentation. https://developers.google.com/maps/documentation/distance-matrix/usage-limits
