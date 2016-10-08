@@ -1,0 +1,9 @@
+This was initial approach. I have to switch gears because of some quite unpredictable problems I ran into with distance matrix API.
+
+While trying to update my database I ran into some issues where google maps couldn't calculate bicycling route between 2 stations. Specifically when the divvy station is Lake Shore Dr. & Ohio St with id 99. I tried id 2 (Michigan Ava & Balbo Ave) as origin and a couple of others. but I kept getting errors in my code. S I decided to try it in google maps I got the error:
+
+Sorry, we could not calculate biking directions from "720 South Michigan Avenue, Chicago, IL 60605" to "North Lake Shore Drive & U.S. 41 & East Grand Avenue, Chicago, IL 60611"
+
+Not completely sure why. But this is not cool because I was attempting to mass update distance info btw stations but I can't do that anymore since I have no idea which pairs of stations might return this error and I'm not sure how I can find out.
+
+I might have to pivot a little. Update my database distance some other way. 
