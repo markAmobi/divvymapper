@@ -1,5 +1,3 @@
-
-
 def do_stuff
   puts "HELLO, there"
 end
@@ -21,8 +19,8 @@ end
 ## this method is to be used to parse the response from get_distance_duration above.
 ## it translates the response to a format thats easier for me to store things in my
 ## destinations table.
+## TODO: take care of cases with zero results or not okay status.
 def translate_response(start_locations, end_locations, response)
-
   final_output = {}
   o_addresses = response["origin_addresses"]
   d_addresses = response["destination_addresses"]
