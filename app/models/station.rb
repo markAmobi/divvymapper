@@ -1,5 +1,5 @@
 class Station < ApplicationRecord
-  has_many :destinations, as: :origin
+  # has_many :destinations, as: :origin
 
   def self.get_live_feed
     get_divvy_data
