@@ -1,3 +1,5 @@
+## TODO: extract divvy helpers and Google maps helpers into separate files.
+
 def do_stuff
   puts "HELLO, there"
 end
