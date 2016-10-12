@@ -1,9 +1,23 @@
-<div id="tripPlanning" class="tab-pane fade">
-  <h3>Trip Details </h3>
-  <ul>
-    <li>Form containing start and stop divvy stations.(in the future, should be any location not just divvy.)</li>
-    <li>User will probably be able to see 5(or more) nearest stations around start and stop. </li>
-    <li>At some point, be able to get user's current location and use for mapping.</li>
-    <li>Possibly other things later.</li>
-  </ul>
+<!-- decide if it's really necessary to make a form now.  -->
+<br>
+<br>
+<div id="tripPlanning" class="tab-pane fade in active">
+  <%= form_tag do  %>
+    <!-- TODO: replace the select with a search box so user can type name of stations and filter list.  -->
+    <div class="form-group">
+      <%= label_tag(:selected_station, "Select Station: ") %>
+      <%=  select_tag(:selected_station, options_from_collection_for_select(@stations, :id, :station_name), class: "form-control")%>
+    </div>
+    <%= button_tag("View", type: "button", class: "view-station btn btn-default" ) %>
+  <% end %>
+
+<br>
+<br>
+
+<!-- indicate which station is currently centered on. also store needed station data(id) for next get request to nearest station.  -->
+<div class="current-station" data-id data-lat data-lng>
 </div>
+<br>
+<br>
+
+</div> <!-- end tab-pane -->

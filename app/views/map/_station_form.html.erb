@@ -1,24 +1,4 @@
-<!-- decide if it's really necessary to make a form now.  -->
-<br>
-<br>
+
 <div id="stationView" class="tab-pane fade">
-  <%= form_tag do  %>
-    <!-- TODO: replace the select with a search box so user can type name of stations and filter list.  -->
-    <div class="form-group">
-      <%= label_tag(:selected_station, "Select Station: ") %>
-      <%=  select_tag(:selected_station, options_from_collection_for_select(@stations, :id, :station_name), class: "form-control")%>
-    </div>
-    <%= button_tag("View", type: "button", class: "view-station btn btn-default" ) %>
-  <% end %>
-
-<br>
-<br>
-<br>
-
-<!-- indicate which station is currently centered on. also store needed station data(id) for next get request to nearest station.  -->
-<div class="current-station" data-id data-lat data-lng>
+  <h3>this is a place holder.  </h3>
 </div>
-<br>
-<br>
-
-</div> <!-- end tab-pane -->
