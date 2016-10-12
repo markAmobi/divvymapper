@@ -7,5 +7,4 @@ Rails.application.routes.draw do
   get 'stations/:id', to: 'stations#show', as: 'station'
   get 'map', to: 'map#map', as: 'map'
   get 'map/:station_id', to: 'map#station'
-  get 'nearest_stations/:station_id', to: 'map#nearest_stations' 
 end
