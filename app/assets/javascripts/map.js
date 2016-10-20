@@ -1,5 +1,10 @@
+//// declare these global variables here. This is probably a bad idea, but it'll have to do
+//// for now.
+//// TODO: figure out best way to organize map code.
 var markers = [];
 var map;
+var myGoogle;
+
 $(function(){
   $('body').css('background-color', '#E6E4E4');
 

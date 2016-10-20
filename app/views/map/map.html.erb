@@ -22,11 +22,11 @@
 
 <script>
 
-
   function initMap(){
-    var largeInfowindow = new google.maps.InfoWindow();
-    var bounds = new google.maps.LatLngBounds();
-    map = new google.maps.Map(document.getElementById('map'), {
+    myGoogle = google;
+    var largeInfowindow = new myGoogle.maps.InfoWindow();
+    var bounds = new myGoogle.maps.LatLngBounds();
+    map = new myGoogle.maps.Map(document.getElementById('map'), {
       center: {lat: 41.8725614, lng: -87.6245382},
       zoom: 13,
       mapTypeControl: false,
@@ -46,7 +46,7 @@
       var s = <%= station.to_json.html_safe %>
       var position = {lat: s.latitude, lng: s.longitude}
       var title = s.station_name;
-      var marker = new google.maps.Marker({
+      var marker = new myGoogle.maps.Marker({
         map: map,
         position: position,
         title: title,
