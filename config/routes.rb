@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'stations#index'
+  # root 'stations#index'
+  root 'map#map'
 
   get 'test', to: 'welcome#index'
   get 'stations', to: 'stations#index'
