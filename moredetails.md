@@ -1,4 +1,4 @@
-## MVP
+### MVP
 Users will simply be able to select a start station and an end station. After that, user simply sees a path on the map with some info about distance and duration.
 
 ### Post MVP
